@@ -22,10 +22,7 @@ def parse_file(file_name):
             date = '{} {}'.format(file_data[DATE_INDEX], file_data[TIME_INDEX])
             date = datetime.strptime(date, '%m-%d-%Y %H:%M')
             activity = file_data[ACTIVITY_INDEX]
-            try:
-                glucose = file_data[GLUCOSE_INDEX]
-            except:
-                pass
+            glucose = file_data[GLUCOSE_INDEX]
             data_dict['data'].append({
                 'date': date,
                 'activity': activity,

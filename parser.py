@@ -51,8 +51,8 @@ def parse_all():
         if not isfile(join('datasets/', f)):
             continue
         data_list.append(parse_file(f))
-
-    save_all_to_csv(data_list)
+    return data_list
 
 if __name__ == '__main__':
-    parse_all()
+    data_list = parse_all()
+    save_all_to_csv(data_list)

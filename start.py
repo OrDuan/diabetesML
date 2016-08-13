@@ -29,11 +29,11 @@ class DataHandler(object):
                 self.activities.append(data['activity'])
                 self.glucose.append(data['glucose'])
 
-    def load_k_fold(self, n_folds):
+    def load_k_fold(self):
         """
         Load the test cases into K folds
         """
-        self.k_fold = KFold(len(self.data_list), n_folds=n_folds)
+        self.k_fold = KFold(len(self.data_list), n_folds=len(self.data_list)*0.2)
 
     def plot(self):
         """
@@ -46,5 +46,5 @@ class DataHandler(object):
 if __name__ == '__main__':
     dh = DataHandler()
     dh.parse_data()
-    dh.load_k_fold(5)
+    dh.load_k_fold()
     dh.plot()
